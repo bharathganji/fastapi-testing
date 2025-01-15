@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import os
 
-PORT = int(os.getenv("PORT", 8000))  # Default to 8000 if PORT is not set
+PORT = int(os.getenv("PORT", 8089))  # Default to 8000 if PORT is not set
 
 # Create an instance of the FastAPI application
 app = FastAPI()
