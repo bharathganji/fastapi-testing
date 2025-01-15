@@ -1,4 +1,7 @@
 from fastapi import FastAPI
+import os
+
+PORT = int(os.getenv("PORT", 8000))  # Default to 8000 if PORT is not set
 
 # Create an instance of the FastAPI application
 app = FastAPI()
@@ -17,3 +20,7 @@ async def read_item(item_id: int, query_param: str = None):
 @app.post("/items/")
 async def create_item(item: dict):
     return {"message": "Item created successfully", "item": item}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
