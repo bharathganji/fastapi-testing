@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  app:
+    # Use the Dockerfile to build the application
+    build: .
+    # Set the container name
+    container_name: fastapi_app
+    # Map ports from the host to the container
+    ports:
+      - "8089:8089" # Map port 8089 on the host to port 8000 in the container
+    # Automatically restart the container if it stops
+    restart: always
+    # Specify the command to run the FastAPI application
+    command: uvicorn main:app --host 0.0.0.0 --port 8089 --reload
